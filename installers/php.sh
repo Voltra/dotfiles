@@ -1,6 +1,6 @@
 #!/bin/bash
 
-which php || sudo apt install php php-xml
+which php || sudo apt install -y php php-xml
 
 if [ -n which composer ]; then
 	php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \

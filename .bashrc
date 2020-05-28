@@ -8,7 +8,7 @@ if [[ -f $THEME ]]; then
 	source $THEME
 fi
 
-installers=(vim-plug nvm)
+installers=(vim-plug nvm youtube-dl)
 chmodh +x ~/.bash/installers/*.sh
 for installer in "${installers[@]}"; do
 	~/.bash/installers/$installer.sh 1> /dev/null
