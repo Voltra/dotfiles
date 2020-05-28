@@ -25,14 +25,14 @@ alias gfhs="gf hotfix start"
 alias gfhf="gf hotfix finish"
 
 ## Specialization
+alias clipboard="clip.exe" # adapt this
+alias explorer="explorer.exe" # adapt this
+alias gui="explorer ."
+alias openGui="explorer"
 alias cc="gcc"
 alias rename="mv"
 alias makeSymLink="ln -s"
 alias chmodsh="chmod +x *.sh"
-alias downloadYtPlaylist="youtube-dl -i -f 140 --audio-format mp3 -o '%(title)s.%(ext)s'"
-alias gui="explorer ." # adapt this
-alias openGui="explorer" # adapt this
-alias vscode="code ."
 alias artisan="php artisan"
 alias osquery="osqueryi"
 alias jq='\jq -C'
