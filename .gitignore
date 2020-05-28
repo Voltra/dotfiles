@@ -1,0 +1,26 @@
+# Files
+.env
+.brackets.json
+package-lock.json
+yarn.lock
+
+# Glob expanded files
+*.log
+*.swp
+*.so
+*.dll
+*.lib
+*.bkp
+npm-debug.log*
+yarn-error.log*
+
+# Directories
+tmp/
+logs/
+node_modules/
+bower_components/
+bin/
+dist/
+build/
+.vscode/
+.idea/
