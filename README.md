@@ -26,6 +26,13 @@ The directories listed below are to be moved in the `~/.bash` directory :
 
 ### Customization
 
+You must adapt a few aliases to your platform, these are :
+
+* `explorer` which allows to open the GUI for the FS (first argument should be a directory)
+* `clipboard` which allows to copy content from a pipe directly to the clipboard
+
+
+
 You may change the contents of these variables for more setup when your terminal boots :
 
 * `scripts` in `.bash_aliases`
