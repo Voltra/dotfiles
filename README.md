@@ -29,7 +29,7 @@ The directories listed below are to be moved in the `~/.bash` directory :
 You may change the contents of these variables for more setup when your terminal boots :
 
 * `scripts` in `.bash_aliases`
-* `installers` in `.bashrc`
+* `installers` in `.bashrc` (**WARNING :** Most of them require sudo)
 
 ### Complete installation
 

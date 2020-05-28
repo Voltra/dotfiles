@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"moduleResolution": "node",
+		"outDir": "./dist/",
+		"declaration": true,
+		"declarationDir": "./lib/",
+		"strictBindCallApply": true,
+		"strictNullChecks": true,
+		"module": "ESNext",
+		"target": "es5",
+		"lib": [
+			"ESNext",
+		],
+		"allowJs": true,
+		"esModuleInterop": true,
+		"checkJs": true,
+	},
+	"exclude": [
+		"node_modules",
+		"lib",
+		"tests",
+	],
+	"include": [
+		"src",
+	]
+}
+
