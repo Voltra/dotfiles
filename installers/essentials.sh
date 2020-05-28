@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git --version || sudo apt install -y git git-flow
+git flow version || sudo apt install -y git-flow
 which gcc || sudo apt install -y build-essential
 jq --help || sudo apt install -y jq
 which vim || sudo apt install -y vim
