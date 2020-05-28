@@ -22,5 +22,6 @@ bower_components/
 bin/
 dist/
 build/
+public/
 .vscode/
 .idea/
