@@ -115,7 +115,7 @@ fun! UseCoc()
 		inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 	endif
 
-	nnoremap <silent> <C-Q> :call <SID>show_documentation()<CR>
+	nnoremap <silent> <C-k> :call <SID>show_documentation()<CR>
 	autocmd CursorHold * silent call CocActionAsync('highlight')
 
 	augroup mygroup
@@ -150,3 +150,7 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nmap <C-_> <Plug>NERDCommenterToggle<CR>
+nnoremap <S-k> <Nop>
+nnoremap K <Nop>
+nnoremap q <Nop>
+nnoremap q{0-9a-zA-Z"} <Nop>
