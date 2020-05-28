@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mhartington/oceanic-next'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'ryanoasis/vim-devicons'
+	Plug 'ap/vim-css-color'
 
 	" Utils
 	Plug 'junegunn/fzf', {'do': { -> fzf#install() }}		" Fuzzy finding
@@ -150,6 +151,9 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nmap <C-_> <Plug>NERDCommenterToggle<CR>
+nnoremap <C-t> :tabe<space>
+
+" Unbind
 nnoremap <S-k> <Nop>
 nnoremap K <Nop>
 nnoremap q <Nop>
