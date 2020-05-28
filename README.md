@@ -36,7 +36,7 @@ You must adapt a few aliases to your platform, these are :
 You may change the contents of these variables for more setup when your terminal boots :
 
 * `scripts` in `.bash_aliases`
-* `installers` in `.bashrc` (**WARNING :** Most of them require sudo)
+* `installers` in `.bashrc` (**WARNING :** Most of them require `sudo`)
 
 ### Complete installation
 
@@ -46,4 +46,4 @@ Once all files are in place, run the following command to finalize the installat
 source ~/.bashrc && ~/.bash/installers/essentials.sh
 ```
 
-Note that the `essentials` installer script must be run once, as it requires `sudo` to complete its tasks.
+Note that the `essentials` installer script must be ran once, as it requires `sudo` to complete its tasks.
