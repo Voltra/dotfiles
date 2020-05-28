@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'								" Git
 	Plug 'tpope/vim-surround'
 	Plug 'preservim/nerdcommenter'
+	Plug 'christoomey/vim-tmux-navigator' 					" Buffer/tab navigator
 
 
 	" Language setup
@@ -148,3 +149,4 @@ nnoremap <C-p> :GFiles<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
+nmap <C-_> <Plug>NERDCommenterToggle<CR>
