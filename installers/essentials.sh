@@ -1,9 +1,9 @@
 #!/bin/bash
 
 which gcc || sudo apt install -y build-essential
-jq -v || sudo apt install -y jq
+jq --help || sudo apt install -y jq
 which vim || sudo apt install -y vim
-python3 -v || sudo apt install -y python3-dev python3-pip
+python3 --version || sudo apt install -y python3-dev python3-pip
 pip3 --version || sudo apt install -y python3-pip
 which cmake || sudo apt install -y cmake
 which wget || sudo apt install -y wget
