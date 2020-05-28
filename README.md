@@ -1,5 +1,5 @@
 # dotfiles
-> A list of dotfiles and scrit for UNIX environments
+> A list of dotfiles and scripts for UNIX environments
 
 
 
