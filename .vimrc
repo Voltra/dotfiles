@@ -146,12 +146,19 @@ colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
 
 " Bindings
+for i in range(97, 122)
+	let c = nr2char(i)
+	exec "map \e" . c . " <M-" . c . ">"
+	exec "map! \e" . c . " <M-" . c . ">"
+endfor " Map alt keys to <M>
 nnoremap <C-p> :GFiles<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
 nmap <C-_> <Plug>NERDCommenterToggle<CR>
 nnoremap <C-t> :tabe<space>
+nmap <M-h> :tabp<CR>
+nmap <M-l> :tabn<CR>
 
 " Unbind
 nnoremap <S-k> <Nop>
