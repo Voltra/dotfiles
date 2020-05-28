@@ -36,6 +36,7 @@ alias vscode="code ."
 alias artisan="php artisan"
 alias osquery="osqueryi"
 alias jq='\jq -C'
+alias adonis="node ace"
 
 ## Scripts
 scripts=(tac split_by)
