@@ -11,7 +11,9 @@ which cmake || sudo apt install -y cmake
 which wget || sudo apt install -y wget
 which curl || sudo apt install -y curl
 which update-ca-certificates || sudo apt install -y ca-certificates
-which gpg || sudo apt install -y gnupg
+which gpg || sudo apt install -y gnupg gnupg-agent
 which tcl || sudo apt install -y tcl
 which openssl || sudo apt install -y openssl libssl-dev
 which pkg-config || sudo apt install -y pkg-config
+dpkg -l apt-transport-https || sudo apt install -y apt-transport-https
+dpkg -l software-properties-common || sudo apt install -y software-properties-common
