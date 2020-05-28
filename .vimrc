@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 	" Themes
 	Plug 'mhartington/oceanic-next'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'ryanoasis/vim-devicons'
 
 	" Utils
 	Plug 'junegunn/fzf', {'do': { -> fzf#install() }}		" Fuzzy finding
@@ -15,8 +16,7 @@ call plug#begin('~/.vim/plugged')
 
 	" Language setup
 	Plug 'dense-analysis/ale'								" Error checking
-	Plug 'valloric/youcompleteme'							" Autocomplete
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}			" Autocomplete
 	Plug 'sheerun/vim-polyglot'								" Syntax highlighting
 	Plug 'jwalton512/vim-blade'
 	Plug 'vim-jp/vim-cpp'
@@ -35,9 +35,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'posva/vim-vue'
 call plug#end()
 
-"" Coc plugins
-" CocInstall coc-vetur coc-rls coc-phpls coc-json coc-html coc-explorer coc-css coc-cmake coc-clangd coc-tsserver
-
 " Settings
 set encoding=utf-8
 set nu rnu
@@ -54,18 +51,22 @@ let g:vue_pre_processors = 'detect_on_enter'
 let g:yats_host_keyword = 1
 let g:php_version_id = 72024
 let g:php_var_selector_is_identifier = 1
+let g:coc_global_extensions = ['coc-vetur', 'coc-phpls', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-tsserver', 'coc-pairs']
 
 " Functions
 function! OnBoot()
 	if(argc() == 0)
 		Explore .
 	end
+
+	:call UseCoc()
 endfunction
 
 fun! UseYcm()
 	nnoremap <buffer> <silent> <leader>gd :YcmCompleter GoTo<CR>
 	nnoremap <buffer> <silent> <leader>gr :YcmCompleter GoToReferences<CR>
 	nnoremap <buffer> <silent> <leader>rr :YcmCompleter RefactorRename<space>
+	nnoremap <buffer> <silent> <S-F6> :YcmCompleter RefactorRename<space>
 endfun
 
 function! s:check_back_space() abort
@@ -73,6 +74,13 @@ function! s:check_back_space() abort
 	return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 
+function! s:show_documentation()
+	if index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	else
+		call CocAction('doHover')
+	endif
+endfunction
 
 fun! UseCoc()
 	inoremap <buffer> <silent><expr> <TAB>
@@ -81,14 +89,41 @@ fun! UseCoc()
 				\ coc#refresh()
 
 	inoremap <buffer> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-	inoremap <buffer> <silent><exp> <C-space> coc#refresh()
+	inoremap <buffer> <silent><expr> <C-space> coc#refresh()
 
 	" GoTo navigation
 	nmap <buffer> <leader>gd <Plug>(coc-definition)
 	nmap <buffer> <leader>gy <Plug>(coc-type-definition)
 	nmap <buffer> <leader>gi <Plug>(coc-implementation)
 	nmap <buffer> <leader>gr <Plug>(coc-references)
+	nmap <buffer> <leader>rr <Plug>(coc-rename)
+	nmap <buffer> <S-F6> <Plug>(coc-rename)
 	nnoremap <buffer> <leader>cr :CocRestart
+
+	set hidden cmdheight=2 updatetime=500 shortmess+=c
+	if has("patch-8.1.1564")
+		  " Recently vim can merge signcolumn and number column into one
+		set signcolumn=number
+	else
+		set signcolumn=yes
+	endif
+
+	if exists('*complete_info')
+		inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+	else
+		inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+	endif
+
+	nnoremap <silent> <C-Q> :call <SID>show_documentation()<CR>
+	autocmd CursorHold * silent call CocActionAsync('highlight')
+
+	augroup mygroup
+		autocmd!
+		" Update signature help on jump placeholder.
+		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	augroup end
+
+	set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 endfun
 
 
@@ -96,8 +131,8 @@ endfun
 " Autocmd
 autocmd VimEnter * :call OnBoot()
 autocmd FileType scss set iskeyword+=-
-autocmd FileType typescript,javascript,php,rust,vue :call UseYcm()
-autocmd FileType cpp,cxx,h,hpp,c :call UseCoc()
+"""autocmd FileType typescript,javascript,php,rust,vue :call UseYcm()
+"""autocmd FileType cpp,cxx,h,hpp,c :call UseCoc()
 
 " Theming
 syntax enable
@@ -113,4 +148,3 @@ nnoremap <C-p> :GFiles<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>
 nmap <leader>gs :G<CR>
-
