@@ -11,9 +11,11 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf.vim'
 	Plug 'vim-airline/vim-airline'							" Status bar
 	Plug 'tpope/vim-fugitive'								" Git
-	Plug 'tpope/vim-surround'
 	Plug 'preservim/nerdcommenter'
 	Plug 'christoomey/vim-tmux-navigator' 					" Buffer/tab navigator
+	Plug 'jremmen/vim-ripgrep' 								" Grep in vim
+	Plug 'vim-utils/vim-man' 								" Man pages in vim
+	Plug 'mbbill/undotree' 									" Tree for undos
 
 
 	" Language setup
@@ -39,21 +41,41 @@ call plug#end()
 
 " Settings
 set encoding=utf-8
-set nu rnu
+set nu rnu nowrap
 filetype plugin indent on
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4 smartindent
 syntax on
-set re=0
+set re=0 incsearch noerrorbells
+set undodir=~/.vim/undodir undofile
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Plugins settings
+let map_leader = " "
 let g:netrw_banner = 0
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 25
 let g:coc_disable_startup_warning = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:vue_pre_processors = 'detect_on_enter'
 let g:yats_host_keyword = 1
 let g:php_version_id = 72024
 let g:php_var_selector_is_identifier = 1
-let g:coc_global_extensions = ['coc-vetur', 'coc-phpls', 'coc-json', 'coc-html', 'coc-css', 'coc-cmake', 'coc-clangd', 'coc-tsserver', 'coc-pairs']
+let g:coc_global_extensions = [
+	\'coc-vetur',
+	\'coc-phpls',
+	\'coc-json',
+	\'coc-html',
+	\'coc-css',
+	\'coc-cmake',
+	\'coc-clangd',
+	\'coc-tsserver',
+	\'coc-pairs'
+\]
+
+if(executable('rg'))
+	let g:rg_derive_root = 'true'
+endif
 
 " Functions
 function! OnBoot()
@@ -159,9 +181,17 @@ nmap <C-_> <Plug>NERDCommenterToggle<CR>
 nnoremap <C-t> :tabe<space>
 nmap <M-h> :tabp<CR>
 nmap <M-l> :tabn<CR>
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertcial resize 30<CR>
+nnoremap <leader>ps :Rg<space>
+nnoremap <C-M-p> :Rg<space>
 
 " Unbind
-nnoremap <S-k> <Nop>
+nnoremap <M-k> <Nop>
 nnoremap K <Nop>
 nnoremap q <Nop>
 nnoremap q{0-9a-zA-Z"} <Nop>
