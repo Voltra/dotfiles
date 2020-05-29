@@ -17,3 +17,5 @@ which openssl || sudo apt install -y openssl libssl-dev
 which pkg-config || sudo apt install -y pkg-config
 dpkg -l apt-transport-https || sudo apt install -y apt-transport-https
 dpkg -l software-properties-common || sudo apt install -y software-properties-common
+
+[ -d ~/.vim ] || mkdir -p ~/.vim/undodir
