@@ -13,3 +13,8 @@ chmodh +x ~/.bash/installers/*.sh
 for installer in "${installers[@]}"; do
 	~/.bash/installers/$installer.sh 1> /dev/null
 done
+
+powerline-daemon -q
+export POWERLINE_BASH_CONTINUATION=1
+export POWERLINE_BASH_SELECT=1
+. /usr/share/powerline/bindings/bash/powerline.sh

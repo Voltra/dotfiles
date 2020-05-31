@@ -16,6 +16,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jremmen/vim-ripgrep' 								" Grep in vim
 	Plug 'vim-utils/vim-man' 								" Man pages in vim
 	Plug 'mbbill/undotree' 									" Tree for undos
+	Plug 'junegunn/goyo.vim' 								" Nice, centered read mode
 
 
 	" Language setup
@@ -51,12 +52,14 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " Plugins settings
-let map_leader = " "
+let mapleader = " "
 let g:netrw_banner = 0
-let g:netrw_browse_split = 2
+let g:netrw_liststyle = 3 " tree
+let g:netrw_browse_split = 4 
 let g:netrw_winsize = 25
 let g:coc_disable_startup_warning = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 let g:vue_pre_processors = 'detect_on_enter'
 let g:yats_host_keyword = 1
 let g:php_version_id = 72024
@@ -72,6 +75,8 @@ let g:coc_global_extensions = [
 	\'coc-tsserver',
 	\'coc-pairs'
 \]
+let g:goyo_height = '100%'
+let g:goyo_linenr = 1
 
 if(executable('rg'))
 	let g:rg_derive_root = 'true'
@@ -186,11 +191,13 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
-nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertcial resize 30<CR>
+map <A-v> :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ps :Rg<space>
 nnoremap <C-M-p> :Rg<space>
+nnoremap <C-g> :Goyo<CR>
 
 " Unbind
+nnoremap <space> <Nop>
 nnoremap <M-k> <Nop>
 nnoremap K <Nop>
 nnoremap q <Nop>

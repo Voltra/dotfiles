@@ -43,7 +43,8 @@ You may change the contents of these variables for more setup when your terminal
 Once all files are in place, run the following command to finalize the installation :
 
 ```bash
-source ~/.bashrc && ~/.bash/installers/essentials.sh
+sudo ~/.bash/installers/essentials.sh 1> /dev/null
+source ~/.bashrc
 ```
 
 Note that the `essentials` installer script must be ran once, as it requires `sudo` to complete its tasks.

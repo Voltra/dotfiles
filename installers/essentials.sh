@@ -2,20 +2,21 @@
 
 git --version || sudo apt install -y git git-flow
 git flow version || sudo apt install -y git-flow
-which gcc || sudo apt install -y build-essential
+gcc --version || sudo apt install -y build-essential
 jq --help || sudo apt install -y jq
-which vim || sudo apt install -y vim
+vim --help || sudo apt install -y vim
 python3 --version || sudo apt install -y python3-dev python3-pip
 pip3 --version || sudo apt install -y python3-pip
-which cmake || sudo apt install -y cmake
-which wget || sudo apt install -y wget
-which curl || sudo apt install -y curl
-which update-ca-certificates || sudo apt install -y ca-certificates
-which gpg || sudo apt install -y gnupg gnupg-agent
-which tcl || sudo apt install -y tcl
-which openssl || sudo apt install -y openssl libssl-dev
-which pkg-config || sudo apt install -y pkg-config
+cmake --version || sudo apt install -y cmake
+wget --help || sudo apt install -y wget
+curl --version || sudo apt install -y curl
+update-ca-certificates --version || sudo apt install -y ca-certificates
+gpg --version || sudo apt install -y gnupg gnupg-agent
+which tclsh || sudo apt install -y tcl
+openssl version || sudo apt install -y openssl libssl-dev
+pkg-config --version || sudo apt install -y pkg-config
 dpkg -l apt-transport-https || sudo apt install -y apt-transport-https
 dpkg -l software-properties-common || sudo apt install -y software-properties-common
+powerline-daemon --replace -q || (sudo apt install -y powerline fonts-powerline && fc-cache -vf)
 
 [ -d ~/.vim ] || mkdir -p ~/.vim/undodir
