@@ -18,7 +18,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'mbbill/undotree' 									" Tree for undos
 	Plug 'junegunn/goyo.vim' 								" Nice, centered read mode
 
-
 	" Language setup
 	Plug 'dense-analysis/ale'								" Error checking
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}			" Autocomplete
