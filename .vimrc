@@ -88,6 +88,8 @@ function! OnBoot()
 		Explore .
 	end
 
+	AirlineToggleWhitespace " do not display whitespace error messages
+
 	:call UseCoc()
 endfunction
 
