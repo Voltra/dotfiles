@@ -37,6 +37,7 @@ alias artisan="php artisan"
 alias osquery="osqueryi"
 alias jq='\jq -C'
 alias adonis="node ace"
+alias tree='\tree -I node_modules'
 
 ## Scripts
 scripts=(tac split_by)
