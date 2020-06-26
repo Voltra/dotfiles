@@ -2,7 +2,7 @@
 
 tree --version || sudo apt install -y tree
 vim --help || sudo apt install -y vim
-git --version || (sudo apt install -y git && git config core.editor vim)
+git --version || (sudo apt install -y git && git config --global core.editor vim)
 git flow version || sudo apt install -y git-flow
 gcc --version || sudo apt install -y build-essential
 jq --help || sudo apt install -y jq
