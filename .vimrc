@@ -74,7 +74,8 @@ let g:coc_global_extensions = [
 	\'coc-cmake',
 	\'coc-clangd',
 	\'coc-tsserver',
-	\'coc-pairs'
+	\'coc-jest',
+	\'coc-emmet'
 \]
 let g:goyo_height = '100%'
 let g:goyo_linenr = 1
@@ -108,7 +109,7 @@ function! s:show_documentation()
 	if index(['vim','help'], &filetype) >= 0)
 		execute 'h '.expand('<cword>')
 	else
-		call CocAction('doHover')
+		call CocActionAsync('doHover')
 	endif
 endfunction
 
@@ -118,7 +119,7 @@ fun! UseCoc()
 				\ <SID>check_back_space() ? "\<TAB>" :
 				\ coc#refresh()
 
-	inoremap <buffer> <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+	inoremap <buffer> <expr><M-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 	inoremap <buffer> <silent><expr> <C-space> coc#refresh()
 
 	" GoTo navigation
@@ -127,7 +128,7 @@ fun! UseCoc()
 	nmap <buffer> <leader>gi <Plug>(coc-implementation)
 	nmap <buffer> <leader>gr <Plug>(coc-references)
 	nmap <buffer> <leader>rr <Plug>(coc-rename)
-	nmap <buffer> <S-F6> <Plug>(coc-rename)
+	nmap <buffer> <M-F6> <Plug>(coc-rename)
 	nnoremap <buffer> <leader>cr :CocRestart
 
 	set hidden cmdheight=2 updatetime=500 shortmess+=c
@@ -144,14 +145,9 @@ fun! UseCoc()
 		inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 	endif
 
-	nnoremap <silent> <C-k> :call <SID>show_documentation()<CR>
+	" nnoremap <silent> <C-q> :call <SID>show_documentation()<CR>
 	autocmd CursorHold * silent call CocActionAsync('highlight')
-
-	augroup mygroup
-		autocmd!
-		" Update signature help on jump placeholder.
-		autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-	augroup end
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 	set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 endfun
@@ -161,8 +157,6 @@ endfun
 " Autocmd
 autocmd VimEnter * :call OnBoot()
 autocmd FileType scss set iskeyword+=-
-"""autocmd FileType typescript,javascript,php,rust,vue :call UseYcm()
-"""autocmd FileType cpp,cxx,h,hpp,c :call UseCoc()
 
 " Theming
 syntax enable
@@ -196,6 +190,7 @@ map <A-v> :wincmd v <bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <leader>ps :Rg<space>
 nnoremap <C-M-p> :Rg<space>
 nnoremap <C-g> :Goyo<CR>
+nnoremap <C-k> :call CocActionAsync('doHover')<CR>
 
 " Unbind
 nnoremap <space> <Nop>

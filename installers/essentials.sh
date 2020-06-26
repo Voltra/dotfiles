@@ -1,7 +1,7 @@
 #!/bin/bash
 
 tree --version || sudo apt install -y tree
-git --version || sudo apt install -y git git-flow
+git --version || (sudo apt install -y git && git config core.autocrlf true)
 git flow version || sudo apt install -y git-flow
 gcc --version || sudo apt install -y build-essential
 jq --help || sudo apt install -y jq
