@@ -1,11 +1,11 @@
 #!/bin/bash
 
 tree --version || sudo apt install -y tree
-git --version || (sudo apt install -y git && git config core.autocrlf true)
+vim --help || sudo apt install -y vim
+git --version || (sudo apt install -y git && git config core.autocrlf true && git config core.editor vim)
 git flow version || sudo apt install -y git-flow
 gcc --version || sudo apt install -y build-essential
 jq --help || sudo apt install -y jq
-vim --help || sudo apt install -y vim
 python3 --version || sudo apt install -y python3-dev python3-pip
 pip3 --version || sudo apt install -y python3-pip
 cmake --version || sudo apt install -y cmake
