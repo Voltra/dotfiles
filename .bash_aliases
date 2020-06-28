@@ -40,6 +40,7 @@ alias osquery="osqueryi"
 alias jq='\jq -C'
 alias adonis="node ace"
 alias tree='\tree -I node_modules'
+alias ngrokServe="ngrok http --host-header=rewrite"
 
 ## Scripts
 scripts=(tac split_by)
