@@ -1,5 +1,6 @@
 #!/bin/bash
 
+which snap || sudo apt install snapd
 tree --version || sudo apt install -y tree
 vim --help || sudo apt install -y vim
 git --version || (sudo apt install -y git && git config --global core.editor vim)
