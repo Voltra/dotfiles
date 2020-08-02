@@ -31,7 +31,6 @@ alias explorer="explorer.exe" # adapt this
 alias gui="explorer ."
 alias openGui="explorer"
 alias cc="gcc"
-alias cd="pushd"
 alias rename="mv"
 alias makeSymLink="ln -s"
 alias chmodsh="chmod +x *.sh"
@@ -41,6 +40,7 @@ alias jq='\jq -C'
 alias adonis="node ace"
 alias tree='\tree -I node_modules'
 alias ngrokServe="ngrok http --host-header=rewrite"
+alias npmr="npm run"
 
 ## Scripts
 scripts=(tac split_by)
