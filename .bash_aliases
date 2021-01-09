@@ -41,6 +41,7 @@ alias adonis="node ace"
 alias tree='\tree -I node_modules'
 alias ngrokServe="ngrok http --host-header=rewrite"
 alias npmr="npm run"
+alias vscode="code ."
 
 ## Scripts
 scripts=(tac split_by)
