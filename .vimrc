@@ -17,6 +17,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-utils/vim-man' 								" Man pages in vim
 	Plug 'mbbill/undotree' 									" Tree for undos
 	Plug 'junegunn/goyo.vim' 								" Nice, centered read mode
+	Plug 'voldikss/vim-floaterm'                            " Floating terminal
+
 
 	" Language setup
 	Plug 'dense-analysis/ale'								" Error checking
@@ -79,6 +81,9 @@ let g:coc_global_extensions = [
 \]
 let g:goyo_height = '100%'
 let g:goyo_linenr = 1
+" let g:floaterm_keymap_new = '<Leader>ft'
+let g:floaterm_keymap_toggle = '<Leader>t'
+
 
 if(executable('rg'))
 	let g:rg_derive_root = 'true'
