@@ -198,6 +198,10 @@ nnoremap <C-g> :Goyo<CR>
 nnoremap <C-k> :call CocActionAsync('doHover')<CR>
 nnoremap <C-Down> :m +1<CR>==
 nnoremap <C-Up> :m -2<CR>==
+nnoremap <c-s> :w<CR>
+vnoremap <c-s> :w<CR>
+inoremap <c-s> <Esc>:w<CR>
+
 
 " Unbind
 nnoremap <space> <Nop>
