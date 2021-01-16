@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ap/vim-css-color'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
+	Plug 'renyard/vim-git-flow-format'
 call plug#end()
 
 for i in range(97, 122)
