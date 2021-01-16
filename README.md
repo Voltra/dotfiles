@@ -5,6 +5,8 @@
 
 ## Installation guide
 
+If you don't plan on modifying anything you can use symlinks instead of copies.
+
 ### Home files
 
 The files listed below are to be copied/moved (or their content pasted) in the home directory `~` :
@@ -22,6 +24,9 @@ The directories listed below are to be moved in the `~/.bash` directory :
 * `scripts`
 * `installers`
 
+### Config files
+
+The files in the directory `configs` are to be copied into `~/.config`
 
 
 ### Customization
