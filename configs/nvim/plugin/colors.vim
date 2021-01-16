@@ -1,8 +1,16 @@
+syntax enable
+set t_Co=256
+
+if(has("termguicolors"))
+	set termguicolors
+endif
+
 colorscheme OceanicNext
-set background=dark
+let g:airline_theme='oceanicnext'
+
 
 highlight ColorColumn ctermbg=0 guibg=grey
-highlight LineNr guifg=#5eacd3
+"highlight LineNr guifg=#5eacd3
 highlight netrwDir guifg=#5eacd3
 highlight qfFileName guifg=#aed75f
 
