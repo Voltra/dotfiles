@@ -14,17 +14,22 @@ fun! LspConfig()
 
 	let g:completion_matching_strategy_list = ["exact", "substring", "fuzzy"]
 
-	lua require'lspconfig'.clangd.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.tsserver.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.vuels.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.vimls.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.sqlls.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.jsonls.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.intelephense.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.html.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.cssls.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.cmake.setup{ on_attach = require'completion'.on_attach }
-	lua require'lspconfig'.bashls.setup{ on_attach = require'completion'.on_attach }
+	command! Format execute 'lua vim.lsb.buf.formatting()'
+lua << EOF
+	local nvim_lsp = require('lspconfig')
+	local on_attach = function(_, bufnr)
+		-- require('diagnostic').on_attach()
+		require('completion').on_attach()
+	end
+
+	local servers = {'clangd', 'tsserver', 'vuels', 'vimls', 'sqlls', 'jsonls', 'intelephense','html', 'cssls', 'cmake', 'bashls'}
+
+	for _, lsp in ipairs(servers) do
+		nvim_lsp[lsp].setup{
+			on_attach = on_attach,
+		}
+	end
+EOF
 
 	inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 	inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
