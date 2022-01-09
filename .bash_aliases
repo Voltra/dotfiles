@@ -11,6 +11,7 @@ alias git-d="git diff"
 alias git-crlf="git config --global core.safecrlf"
 alias git-rm="git rm -r --cached"
 alias git-ac="git-add && git-commit"
+alias git-amend="git commit --amend"
 
 alias git-b="git rev-parse --abbrev-ref HEAD"
 alias gpush='git push origin $(git-b)'
